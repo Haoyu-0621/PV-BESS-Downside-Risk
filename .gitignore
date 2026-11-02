@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.vscode/
+.idea/
+codex工作文件/
+output/
+outputs/
+*.log
+*.lp
+*.mps
+gurobi.lic
+# 本代码包默认不公开原始输入数据及手稿。
+*.xlsx
+*.docx
+*.pptx

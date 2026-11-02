@@ -5,11 +5,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 # ---- 数据文件 ----
-RAW_LOAD_FILE = ROOT / "罗源服务区负荷曲线.xlsx"
-PV_PROFILE_FILE = ROOT / "光伏出力.xlsx"
-PV_REF_FILE = ROOT / "福建省光伏装机容量.xlsx"
-PV_REF_NAME = "罗源服务区"
-TOU_FILE = ROOT / "福州市分时电价.xlsx"
+INPUT_DIR = ROOT / "inputs"
+RAW_LOAD_FILE = INPUT_DIR / "luoyuan_load.xlsx"
+PV_PROFILE_FILE = INPUT_DIR / "luoyuan_pv_output.xlsx"
+PV_REF_FILE = INPUT_DIR / "pv_reference_capacity.xlsx"
+PV_REF_NAME = "Luoyuan Service Area"
+TOU_FILE = INPUT_DIR / "fuzhou_tou_tariff.xlsx"
 
 N = 8760
 MONTH_DAYS = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)

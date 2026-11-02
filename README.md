@@ -38,14 +38,14 @@ python -m pip install -r requirements.txt
 
 ## Input data
 
-The original Excel inputs are not included in this repository. Place the following files in the repository root, or set their paths in `src/config.py`.
+The four input workbooks are included in `inputs/`. File names, worksheet names and text labels are in English. Numeric observations and row order are unchanged from the original case-study inputs. Paths and the reference site name are set in `src/config.py`.
 
 | File | Required layout |
 |---|---|
-| `罗源服务区负荷曲线.xlsx` | First worksheet with a header; the first two columns contain hourly indices 1–8760 and load in kW. |
-| `光伏出力.xlsx` | First worksheet with a header; the second column contains 8760 hourly PV power values. |
-| `福建省光伏装机容量.xlsx` | First worksheet with a header; the first column identifies the site and the fifth gives its reference PV capacity in kW. The site must match `PV_REF_NAME`. |
-| `福州市分时电价.xlsx` | First worksheet with a header; 12 subsequent rows contain the month in the first column and 24 hourly tariff values in the following columns. |
+| `luoyuan_load.xlsx` | `Load` worksheet: `Hour` contains indices 1–8760 and `Load (kW)` gives site demand. |
+| `luoyuan_pv_output.xlsx` | `PV Output` worksheet: `Hour` contains indices 1–8760 and `PV output (kW)` gives reference PV generation. |
+| `pv_reference_capacity.xlsx` | `PV Reference` worksheet: the first column identifies the site and the fifth gives reference PV capacity in kW. `Luoyuan Service Area` matches `PV_REF_NAME`. |
+| `fuzhou_tou_tariff.xlsx` | `TOU Tariff` worksheet: 12 monthly rows, English month names in the first column, and 24 hourly tariffs in CNY/kWh in the following columns. |
 
 Load, PV output and tariffs must refer to the same hourly sequence for a non-leap year. PV output is normalised by the reference installed capacity.
 

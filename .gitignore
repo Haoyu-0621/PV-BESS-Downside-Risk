@@ -11,7 +11,11 @@ outputs/
 *.lp
 *.mps
 gurobi.lic
-# 本代码包默认不公开原始输入数据及手稿。
+# Source documents and datasets are excluded except the four published inputs.
 *.xlsx
+!inputs/luoyuan_load.xlsx
+!inputs/luoyuan_pv_output.xlsx
+!inputs/pv_reference_capacity.xlsx
+!inputs/fuzhou_tou_tariff.xlsx
 *.docx
 *.pptx

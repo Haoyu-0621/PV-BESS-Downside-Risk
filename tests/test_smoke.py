@@ -152,10 +152,15 @@ def test_pricing_components_reject_invalid_parameters():
         )
 
 
-def test_tou_expands_monthly_prices_to_8760_hours(monkeypatch):
+@pytest.mark.parametrize("month_labels", [
+    list(range(1, 13)),
+    ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+])
+def test_tou_expands_monthly_prices_to_8760_hours(monkeypatch, month_labels):
     import pandas as pd
     table = pd.DataFrame([["month"] + list(range(24))] + [
-        [month] + [0.1 * month + 0.01 * hour for hour in range(24)]
+        [month_labels[month - 1]] + [0.1 * month + 0.01 * hour for hour in range(24)]
         for month in range(1, 13)
     ])
     monkeypatch.setattr(pd, "read_excel", lambda *args, **kwargs: table)
